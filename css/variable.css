@@ -1,0 +1,35 @@
+/* css/variables.css */
+:root {
+  --bg-primary: #090D18;
+  --text-primary: #FAFAFA;
+  --text-muted: #D9D9D9;
+
+  --accent-green: #59FFBA;
+  --accent-blue: #5F6BF6;
+
+  --border-subtle: rgba(255,255,255,0.1);
+
+   /* Font families */
+  --font-sans: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  /* Font sizes (Figma-based) */
+  --fs-h1: 100px;
+  --fs-h2: 60px;
+  --fs-h3: 20px;
+  --fs-h4: 20px;
+  --fs-h5: 18px;
+  --fs-p: 14px;
+  --fs-small: 12px;
+
+  /* Line height */
+  --lh-tight: 1.1;
+  --lh-normal: 1.4;
+  --lh-relaxed: 1.6;
+
+  /* Font weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+}

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yaiza Coz · UX/UI & Product Designer</title>
+
+    <link rel="icon" href="./assets/icons/yiz-logo.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Variables -->
+    <link rel="stylesheet" href="./css/variable.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- JS -->
+    <script src="./js/main.js" defer></script>
+
+</head>
+
+<body class="text-white">
+
+    <!-- HEADER -->
+    <header class="site-header fixed top-0 w-full z-50 border-b border-[var(--border-subtle)]">
+        <nav class="header-nav max-w-7xl mx-auto px-6 h-20 relative">
+
+            <!-- LEFT -->
+            <div class="header-left">
+                <a href="#hero">
+                    <img src="assets/icons/yiz-logo.svg" alt="Yaiza Coz García logo" class="h-12 w-auto" />
+                </a>
+            </div>
+
+            <!-- CENTER-->
+            <div class="header-center hidden md:flex">
+                <ul class="nav-pill">
+                    <li class="nav-item active"><a href="#hero">Home</a></li>
+                    <li class="nav-item"><a href="#design-path">About me</a></li>
+                    <li class="nav-item"><a href="#services">Services</a></li>
+                    <li class="nav-item"><a href="#projects">Projects</a></li>
+                </ul>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="header-right">
+                <a href="https://www.linkedin.com/in/yaiza-coz" target="_blank" rel="noopener" class="btn-icon-only"
+                    aria-label="LinkedIn profile">
+                    <img src="assets/icons/linkedin.svg" alt="" />
+                </a>
+
+                <a href="#contact" class="btn-primary">
+                    Let’s talk
+                    <span class="btn-icon">
+                        <img src="assets/icons/arrow-right.svg" class="icon-default" alt="" />
+                        <img src="assets/icons/arrow-right-secondary.svg" class="icon-hover" alt="" />
+                    </span>
+                </a>
+            </div>
+
+        </nav>
+    </header>
+
+
+
+    <section class="hero-bg" id="hero"></section>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-container">
+
+            <!-- TITLE -->
+            <h1 class="hero-title">
+                Designing digital products<br />
+                for complex systems
+            </h1>
+
+            <!-- CONTENT GRID -->
+            <div class="hero-grid">
+
+                <!-- COLUMN 1 · TABS -->
+                <div class="hero-tabs">
+                    <span class="tab">UX/UI</span>
+                    <span class="tab">Product Design</span>
+                    <span class="tab">Visual & Graphic Design</span>
+                    <span class="tab">Design Systems</span>
+                    <span class="tab">Branding</span>
+                    <span class="tab">Prototyping</span>
+                </div>
+
+                <!-- COLUMN 2 · IMAGE -->
+                <div class="hero-image">
+                    <img src="assets/img/yiz.png" alt="Yaiza Coz" />
+                </div>
+
+                <!-- COLUMN 3 · TEXT + CTA -->
+                <div class="hero-content">
+                    <p>
+                        I design clear and usable interfaces for digital products.
+                    </p>
+                    <p>
+                        My work focuses on structure, usability and building solutions that
+                        work in real environments.
+                    </p>
+
+                    <a href="#projects" class="btn-secondary">
+                        View projects
+                        <span class="btn-icon">
+                            <img src="assets/icons/arrow-right-secondary.svg" class="icon-default" alt="" />
+                            <img src="assets/icons/arrow-right.svg" class="icon-hover" alt="" />
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CREATIVE DNA -->
+    <section id="creative-dna" class="dna-section">
+        <div class="dna-container">
+
+            <!-- Background letters -->
+            <div class="dna-bg">
+                <img src="assets/img/DNA.png" alt="" aria-hidden="true" />
+            </div>
+
+            <!-- Title -->
+            <h2 class="dna-title">Creative DNA</h2>
+
+            <!-- Cards -->
+            <div class="dna-cards">
+
+                <div class="dna-card">
+                    <img src="assets/icons/graphic_design.png" alt="" class="dna-icon" />
+                    <h3>Graphic<br />Design</h3>
+                </div>
+
+                <div class="dna-card">
+                    <img src="assets/icons/ui.png" alt="" class="dna-icon" />
+                    <h3>UX/UI<br />Design</h3>
+                </div>
+
+                <div class="dna-card">
+                    <img src="assets/icons/code.png" alt="" class="dna-icon" />
+                    <h3>Web<br />Development</h3>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MY DESIGN PATH -->
+    <section id="design-path" class="timeline-section">
+
+        <!-- Background image -->
+        <div class="timeline-bg"></div>
+
+        <div class="timeline-container">
+
+            <!-- Title -->
+            <header class="timeline-header">
+                <h2>My design <span>path</span></h2>
+                <p>
+                    A chronological overview of my education and professional experience,
+                    showing how both have evolved in parallel.
+                </p>
+            </header>
+
+            <!-- Timeline -->
+            <div class="timeline">
+
+                <!-- Center line -->
+                <div class="timeline-line"></div>
+
+                <!-- LEFT · EXPERIENCE -->
+                <div class="timeline-column left">
+                    <div class="timeline-card">
+                        <span class="timeline-icon">
+                            <img src="assets/icons/work.png" alt="" />
+                        </span>
+                        <span class="timeline-date">MAR 2020 – DEC 2020</span>
+                        <div class="timeline-title">
+                            <span class="tab">Intership</span>
+                            <h3>Graphic Designer</h3>
+                        </div>
+                        <p>CIC Consulting Informático · Santander</p>
+                    </div>
+
+                    <div class="timeline-card">
+                        <span class="timeline-icon">
+                            <img src="assets/icons/work.png" alt="" />
+                        </span>
+                        <span class="timeline-date">2021 – 2022</span>
+                        <h3>Graphic Designer</h3>
+                        <p>CIC Consulting Informático · Santander</p>
+                    </div>
+
+                    <div class="timeline-card">
+                        <span class="timeline-icon">
+                            <img src="assets/icons/work.png" alt="" />
+                        </span>
+                        <span class="timeline-date">APR 2022 – JUN 2022</span>
+                        <div class="timeline-title">
+                            <span class="tab">Intership</span>
+                            <h3>Web Developer</h3>
+                        </div>
+                        <p>CIC Consulting Informático · Santander</p>
+                    </div>
+
+                    <div class="timeline-card">
+                        <span class="timeline-icon">
+                            <img src="assets/icons/work.png" alt="" />
+                        </span>
+                        <span class="timeline-date">2022 – Present</span>
+                        <h3>UX/UI & Product Designer</h3>
+                        <p>CIC Consulting Informático · Santander</p>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT · EDUCATION -->
+                <div class="timeline-column right">
+                    <div class="timeline-card">
+                        <span class="timeline-icon">
+                            <img src="assets/icons/study.png" alt="" />
+                        </span>
+                        <span class="timeline-date">2016 – 2020</span>
+                        <h3>Bachelor’s Degree in Graphic Design</h3>
+                        <p>Cesine University · Santander</p>
+                    </div>
+
+                    <div class="timeline-card">
+                        <span class="timeline-icon">
+                            <img src="assets/icons/study.png" alt="" />
+                        </span>
+                        <span class="timeline-date">2020 – 2022</span>
+                        <h3>Higher Degree in Web Application Development</h3>
+                        <p>IES Augusto González de Linares · Santander</p>
+                    </div>
+
+                    <div class="timeline-card">
+                        <span class="timeline-icon">
+                            <img src="assets/icons/study.png" alt="" />
+                        </span>
+                        <span class="timeline-date">2022 – 2023</span>
+                        <h3>Master’s Degree in Web & Application Development</h3>
+                        <p>Universidad Europea · Madrid</p>
+                    </div>
+
+                    <div class="timeline-card">
+                        <span class="timeline-icon">
+                            <img src="assets/icons/study.png" alt="" />
+                        </span>
+                        <span class="timeline-date">2023 – 2024</span>
+                        <h3>Master’s Degree in UX/UI Design</h3>
+                        <p>Escuela Superior de Diseño Gráfico Barcelona</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- SKILLS CAROUSEL -->
+        <div class="skills-carousel">
+
+            <!-- FILA 1 · DESIGN -->
+            <div class="tabs-carousel">
+                <div class="tabs-group tabs-group--top">
+                    <span class="tab">UX/UI Design</span>
+                    <span class="tab">Product Design</span>
+                    <span class="tab">Design Systems</span>
+                    <span class="tab">User Experience</span>
+                    <span class="tab">User Interface</span>
+                    <span class="tab">Prototyping</span>
+                    <span class="tab">Wireframing</span>
+                    <span class="tab">Usability</span>
+                    <span class="tab">Figma</span>
+                    <span class="tab">Adobe Illustrator</span>
+                </div>
+
+                <div class="tabs-group tabs-group--top" aria-hidden="true">
+                    <span class="tab">UX/UI Design</span>
+                    <span class="tab">Product Design</span>
+                    <span class="tab">Design Systems</span>
+                    <span class="tab">User Experience</span>
+                    <span class="tab">User Interface</span>
+                    <span class="tab">Prototyping</span>
+                    <span class="tab">Wireframing</span>
+                    <span class="tab">Usability</span>
+                    <span class="tab">Figma</span>
+                    <span class="tab">Adobe Illustrator</span>
+                </div>
+            </div>
+
+            <!-- FILA 2 · DEV / ADOBE -->
+            <div class="tabs-carousel">
+
+                <!-- DUPLICADO PRIMERO -->
+                <div class="tabs-group tabs-group--bottom tabs-group--offset" aria-hidden="true">
+                    <span class="tab">Adobe Photoshop</span>
+                    <span class="tab">Adobe InDesign</span>
+                    <span class="tab">After Effects</span>
+                    <span class="tab">HTML</span>
+                    <span class="tab">CSS</span>
+                    <span class="tab">JavaScript</span>
+                    <span class="tab">WordPress</span>
+                    <span class="tab">Elementor</span>
+                    <span class="tab">Usability Testing</span>
+                    <span class="tab">Graphic Design</span>
+                </div>
+
+                <!-- ORIGINAL DESPUÉS -->
+                <div class="tabs-group tabs-group--bottom tabs-group--offset">
+                    <span class="tab">Adobe Photoshop</span>
+                    <span class="tab">Adobe InDesign</span>
+                    <span class="tab">After Effects</span>
+                    <span class="tab">HTML</span>
+                    <span class="tab">CSS</span>
+                    <span class="tab">JavaScript</span>
+                    <span class="tab">WordPress</span>
+                    <span class="tab">Elementor</span>
+                    <span class="tab">Usability Testing</span>
+                    <span class="tab">Graphic Design</span>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+    <section class="services-projects-wrapper">
+
+        <!-- SERVICES -->
+        <section class="services" id="services">
+            <div class="services-header">
+                <h2>Services</h2>
+
+                <a href="#contact" class="btn-secondary">
+                    Let’s work together
+                    <span class="btn-icon">
+                        <img src="assets/icons/arrow-right-secondary.svg" class="icon-default" alt="" />
+                        <img src="assets/icons/arrow-right.svg" class="icon-hover" alt="" />
+                    </span>
+                </a>
+            </div>
+
+            <div class="services-grid">
+
+                <article class="service-card">
+                    <span class="service-index">01</span>
+
+                    <h3>Branding & Visual Foundations</h3>
+
+                    <p>
+                        Definition of visual identity and design foundations for digital products.
+                    </p>
+
+                    <p>
+                        From branding and visual language to UI principles that guide the entire product.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <span class="service-index">02</span>
+                    <h3>UX/UI & Product Design</h3>
+                    <p>User-centered interface design for websites and digital products.</p>
+                    <p>Focused on usability, structure and interaction.</p>
+                </article>
+
+                <article class="service-card">
+                    <span class="service-index">03</span>
+                    <h3>Web & Application Interfaces</h3>
+                    <p>Interface design for responsive websites and applications.</p>
+                    <p>Adapted to the needs of each product and its users.</p>
+                </article>
+
+                <article class="service-card">
+                    <span class="service-index">04</span>
+                    <h3>Design to Implementation</h3>
+                    <p>Collaboration during implementation to ensure design quality.</p>
+                    <p>Close work with development teams when needed.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SERVICES → PROJECTS BACKGROUND -->
+        <section class="services-projects-bg"></section>
+
+        <!-- PROJECTS -->
+        <section class="projects" id="projects">
+            <h2>My projects</h2>
+
+            <div class="projects-carousel">
+
+                <div class="projects-track">
+                    <article class="project-card">
+                        <div class="project-icon">
+                            <img src="assets/icons/ui.png" alt="" class="dna-icon" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Elefan</h3>
+                            <p>An application focused on mental and emotional well-being.</p>
+                        </div>
+                        <a href="https://www.behance.net/gallery/213069215/Elefan" target="_blank"
+                            class="btn-secondary">
+                            View project
+                            <span class="btn-icon">
+                                <img src="assets/icons/arrow-right-secondary.svg" class="icon-default" alt="" />
+                                <img src="assets/icons/arrow-right.svg" class="icon-hover" alt="" />
+                            </span>
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon">
+                            <img src="assets/icons/ui.png" alt="" class="dna-icon" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Celifood</h3>
+                            <p>An application created to support people with celiac disease.</p>
+                        </div>
+                        <a href="https://www.behance.net/gallery/104769139/Celifood" target="_blank"
+                            class="btn-secondary">
+                            View project
+                            <span class="btn-icon">
+                                <img src="assets/icons/arrow-right-secondary.svg" class="icon-default" alt="" />
+                                <img src="assets/icons/arrow-right.svg" class="icon-hover" alt="" />
+                            </span>
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon">
+                            <img src="assets/icons/ui.png" alt="" class="dna-icon" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Serene</h3>
+                            <p>A mindfulness application designed to improve daily balance.</p>
+                        </div>
+                        <a href="https://www.figma.com/proto/1EGbtk6CqpQwbU15DS814o/Serene?node-id=1-3&p=f&t=y45tbb8RtfP4f5Ki-1&scaling=contain&content-scaling=fixed&page-id=0%3A1"
+                            target="_blank" class="btn-secondary">
+                            View project
+                            <span class="btn-icon">
+                                <img src="assets/icons/arrow-right-secondary.svg" class="icon-default" alt="" />
+                                <img src="assets/icons/arrow-right.svg" class="icon-hover" alt="" />
+                            </span>
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon">
+                            <img src="assets/icons/code.png" alt="" class="dna-icon" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Reservia</h3>
+                            <p>A SaaS platform for managing bookings and daily operations.</p>
+                        </div>
+                        <a href="#contact" target="_blank" class="btn-secondary">
+                            View project
+                            <span class="btn-icon">
+                                <img src="assets/icons/arrow-right-secondary.svg" class="icon-default" alt="" />
+                                <img src="assets/icons/arrow-right.svg" class="icon-hover" alt="" />
+                            </span>
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon">
+                            <img src="assets/icons/ui.png" alt="" class="dna-icon" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Another Project</h3>
+                            <p>Short description of the project.</p>
+                        </div>
+                        <a href="#contact" target="_blank" class="btn-secondary">
+                            View project
+                            <span class="btn-icon">
+                                <img src="assets/icons/arrow-right-secondary.svg" class="icon-default" alt="" />
+                                <img src="assets/icons/arrow-right.svg" class="icon-hover" alt="" />
+                            </span>
+                        </a>
+                    </article>
+                </div>
+
+                <div class="projects-pagination">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="container">
+
+            <div class="contact-wrapper">
+
+                <!-- LEFT -->
+                <div class="contact-content">
+                    <span class="tab"> Get in touch</span>
+                    <h2>
+                        Let’s talk about<br />
+                        <span class="highlight">your project</span>
+                    </h2>
+                    <a href="mailto:hello@email.com" class="btn-secondary">
+                        Write me
+                        <span class="btn-icon">
+                            <img src="assets/icons/arrow-right-secondary.svg" class="icon-default" alt="" />
+                            <img src="assets/icons/arrow-right.svg" class="icon-hover" alt="" />
+                        </span>
+                    </a>
+                </div>
+
+                <form class="contact-form" action="https://formspree.io/f/mbdjqalk" method="POST">
+
+                    <h3>Share a few details and I’ll get back to you.</h3>
+
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Enter your name" required />
+                        <input type="email" name="email" placeholder="Enter your email" required />
+                        <input type="text" name="_gotcha" style="display:none">
+                    </div>
+
+                    <textarea name="message" placeholder="Write your message" rows="4" required></textarea>
+
+                    <label class="checkbox">
+                        <input type="checkbox" required />
+                        <span class="checkmark"></span>
+                        I’ve read and accept the
+                        <a href="#">Data Protection Policy</a>.
+                    </label>
+
+                    <input type="hidden" name="_subject" value="New contact from Yiz Design Studio">
+
+                    <button type="submit" class="btn-primary">
+                        Send
+                        <span class="btn-icon">
+                            <img src="assets/icons/arrow-right.svg" class="icon-default" alt="" />
+                            <img src="assets/icons/arrow-right-secondary.svg" class="icon-hover" alt="" />
+                        </span>
+                    </button>
+
+                    <p class="form-success" hidden>
+                        Thanks! Your message has been sent successfully.
+                    </p>
+
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-final">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Do you have a <strong>project</strong> in mind?</h2>
+
+                <a href="#contact" class="btn-secondary">
+                    Let’s make it happen
+                    <span class="btn-icon">
+                        <img src="assets/icons/arrow-right-secondary.svg" class="icon-default" alt="" />
+                        <img src="assets/icons/arrow-right.svg" class="icon-hover" alt="" />
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-wrapper">
+
+            <!-- LEFT -->
+            <div class="footer-left">
+                <h3 class="footer-name">Yaiza Coz García</h3>
+
+                <p class="footer-role">Web designer & developer.</p>
+                <p class="footer-copy">© 2026 Yaiza Coz García. All rights reserved.</p>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="footer-right">
+                <h3 class="footer-title">Say hello!</h3>
+
+                <form class="footer-form" action="https://formspree.io/f/xwvkandg" method="POST">
+
+                    <input type="email" name="email" placeholder="Leave me your email and I’ll get back to you."
+                        required />
+
+                    <!-- Opcional pero recomendable -->
+                    <input type="hidden" name="_subject" value="New footer contact – Yiz Design Studio">
+
+                    <button type="submit" class="btn-primary">
+                        Send
+                        <span class="btn-icon">
+                            <img src="assets/icons/arrow-right.svg" class="icon-default" alt="" />
+                            <img src="assets/icons/arrow-right-secondary.svg" class="icon-hover" alt="" />
+                        </span>
+                    </button>
+
+                </form>
+
+
+                <p class="form-success" hidden>
+                    Thanks! I’ll be in touch soon.
+                </p>
+
+            </div>
+
+        </div>
+    </footer>
+
+    <button class="scroll-top" aria-label="Scroll to top">
+        <img src="./assets/icons/top-arrow.svg" alt="" />
+    </button>
+
+
+</body>
+
+</html>
