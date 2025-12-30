@@ -42,6 +42,11 @@
                 </a>
             </div>
 
+            <!-- MOBILE TOGGLE (visible on small screens) -->
+            <button class="nav-toggle md:hidden" aria-expanded="false" aria-label="Open menu">
+                <img src="assets/icons/menu.png" alt="menu" />
+            </button>
+
             <!-- CENTER-->
             <div class="header-center hidden md:flex">
                 <ul class="nav-pill">
@@ -53,7 +58,7 @@
             </div>
 
             <!-- RIGHT -->
-            <div class="header-right">
+            <div class="header-right hidden md:flex">
                 <a href="https://www.linkedin.com/in/yaiza-coz" target="_blank" rel="noopener" class="btn-icon-only"
                     aria-label="LinkedIn profile">
                     <img src="assets/icons/linkedin.svg" alt="" />
@@ -68,15 +73,83 @@
                 </a>
             </div>
 
+            <!-- MOBILE NAV (duplicated for mobile, hidden on md+ using Tailwind utility) -->
+            <div class="header-center-mobile md:hidden">
+                <ul class="nav-pill">
+                    <li class="nav-item active"><a href="#hero">Home</a></li>
+                    <li class="nav-item"><a href="#design-path">About me</a></li>
+                    <li class="nav-item"><a href="#services">Services</a></li>
+                    <li class="nav-item"><a href="#projects">Projects</a></li>
+
+                    <!-- Utilities as list items to preserve menu style -->
+                    <li class="nav-item">
+                        <a href="https://www.linkedin.com/in/yaiza-coz" target="_blank" rel="noopener">
+                            LinkedIn
+                        </a>
+                    </li>
+
+                    <li class="nav-heading">
+                        <h2 class="mobile-cta-title">Have a project in mind?</h2>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#contact" class="btn-primary btn-mobile">
+                            Let’s talk
+                            <span class="btn-icon">
+                                <img src="assets/icons/arrow-right.svg" class="icon-default" alt="" />
+                                <img src="assets/icons/arrow-right-secondary.svg" class="icon-hover" alt="" />
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="header-center-mobile md:hidden" aria-hidden="true">
+                <div class="mobile-panel-inner">
+                    <button class="mobile-close" aria-label="Close menu">
+                        <img src="assets/icons/close.svg" alt="close" />
+                    </button>
+
+                    <div class="mobile-panel-header">
+                        <img src="assets/icons/yiz-logo.svg" alt="logo" class="mobile-logo" />
+                    </div>
+
+                    <ul class="nav-pill mobile-list">
+                        <li class="nav-item active"><a href="#hero">Home</a></li>
+                        <li class="nav-item"><a href="#design-path">About me</a></li>
+                        <li class="nav-item"><a href="#services">Services</a></li>
+                        <li class="nav-item"><a href="#projects">Projects</a></li>
+
+                        <!-- Utilities as list items to preserve menu style -->
+                        <li class="nav-item">
+                            <a href="https://www.linkedin.com/in/yaiza-coz" target="_blank" rel="noopener">
+                                <img src="assets/icons/linkedin.svg" alt="LinkedIn"
+                                    style="width:18px; height:auto; margin-right:8px; vertical-align:middle;" />
+                                Linkedin
+                            </a>
+                        </li>
+
+                        <li class="nav-heading">
+                            <h3 class="mobile-cta-title">Have a project in mind?</h3>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#contact" class="btn-primary btn-mobile">
+                                Let’s talk
+                                <span class="btn-icon">
+                                    <img src="assets/icons/arrow-right.svg" class="icon-default" alt="" />
+                                    <img src="assets/icons/arrow-right-secondary.svg" class="icon-hover" alt="" />
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </nav>
     </header>
 
-
-
-    <section class="hero-bg" id="hero"></section>
-
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-container">
 
             <!-- TITLE -->
@@ -325,7 +398,7 @@
                 </a>
             </div>
 
-            <div class="services-grid">
+            <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
                 <article class="service-card">
                     <span class="service-index">01</span>

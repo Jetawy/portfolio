@@ -33,3 +33,28 @@
   --fw-semibold: 600;
   --fw-bold: 700;
 }
+
+/* Responsive font size adjustments */
+@media (max-width: 1024px) {
+  :root {
+    --fs-h1: 64px;
+    --fs-h2: 40px;
+    --fs-h3: 18px;
+    --fs-h4: 18px;
+    --fs-h5: 16px;
+    --fs-p: 15px;
+    --fs-small: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --fs-h1: 46px;
+    --fs-h2: 38px;
+    --fs-h3: 18px;
+    --fs-h4: 16px;
+    --fs-h5: 14px;
+    --fs-p: 14px;
+    --fs-small: 12px;
+  }
+}

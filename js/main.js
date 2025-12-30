@@ -227,3 +227,172 @@ document.querySelectorAll('.tabs-carousel').forEach((carousel, idx) => {
         requestAnimationFrame(start);
     }
 });
+
+/* =========================
+   SCROLLSPY - Active nav item on scroll
+   ========================= */
+
+(function () {
+    const navItems = Array.from(document.querySelectorAll('.nav-item'));
+    if (!navItems.length) return;
+
+    const idToNav = {};
+    navItems.forEach((li) => {
+        const a = li.querySelector('a');
+        if (!a) return;
+        const href = a.getAttribute('href');
+        if (!href || !href.startsWith('#')) return;
+        const id = href.slice(1);
+        if (!idToNav[id]) idToNav[id] = [];
+        idToNav[id].push(li);
+    });
+
+    const sections = Object.keys(idToNav).map((id) => document.getElementById(id)).filter(Boolean);
+    if (!sections.length) return;
+
+    let currentActive = document.querySelector('.nav-item.active') || null;
+    const header = document.querySelector('.site-header');
+    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+    function setActive(targetLiOrArray) {
+        // accept a single li or an array of li's
+        const newLis = Array.isArray(targetLiOrArray) ? targetLiOrArray : [targetLiOrArray];
+        if (!newLis.length) return;
+        // remove active from all nav items
+        navItems.forEach((n) => n.classList.remove('active'));
+        // add active to each new li
+        newLis.forEach((n) => n.classList.add('active'));
+        // keep reference to the first as currentActive
+        currentActive = newLis[0] || null;
+    }
+
+    // choose the section that is nearest to the header (last one scrolled past)
+    function detectActiveSection() {
+        // prefer the section whose top is <= headerHeight + smallOffset and is the closest to header
+        const smallOffset = 5;
+        let candidate = null;
+
+        for (const s of sections) {
+            const rect = s.getBoundingClientRect();
+            if (rect.top <= headerHeight + smallOffset) {
+                if (!candidate || rect.top > candidate.rectTop) candidate = { el: s, rectTop: rect.top };
+            }
+        }
+
+        if (!candidate) {
+            // if none passed the header, pick the nearest one below the header
+            let nearest = null;
+            for (const s of sections) {
+                const rect = s.getBoundingClientRect();
+                if (!nearest || rect.top < nearest.rectTop) nearest = { el: s, rectTop: rect.top };
+            }
+            candidate = nearest;
+        }
+
+        if (candidate && candidate.el && candidate.el.id) {
+            const lis = idToNav[candidate.el.id] || [];
+            setActive(lis);
+        }
+    }
+
+    let ticking = false;
+    function onScroll() {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(() => {
+                detectActiveSection();
+                ticking = false;
+            });
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => detectActiveSection());
+    window.addEventListener('load', () => detectActiveSection());
+
+    // immediate feedback when clicking nav links
+    navItems.forEach((li) => {
+        const a = li.querySelector('a');
+        if (!a) return;
+        a.addEventListener('click', () => setActive(li));
+    });
+
+    // initial detection
+    detectActiveSection();
+})();
+
+/* MOBILE NAV TOGGLE */
+(function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileNav = document.querySelector('.header-center-mobile');
+    if (!toggle || !mobileNav) return;
+
+    const menuIcon = 'assets/icons/menu.png';
+    const closeIcon = 'assets/icons/close.svg';
+    let savedScrollY = 0;
+
+    function setOpen(open) {
+        mobileNav.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        const img = toggle.querySelector('img');
+        if (img) img.src = open ? closeIcon : menuIcon;
+
+        // position the dropdown immediately under the header and set height
+        const headerEl = document.querySelector('.site-header');
+        const headerRect = headerEl ? headerEl.getBoundingClientRect() : { bottom: 0 };
+        const top = Math.round(headerRect.bottom);
+        // compute remaining height so the panel fills to the bottom of the viewport
+        const remaining = Math.max(0, window.innerHeight - top);
+
+        if (open) {
+            // save scroll and lock body to prevent background scroll
+            savedScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${savedScrollY}px`;
+            document.body.style.left = '0';
+            document.body.style.right = '0';
+
+            mobileNav.style.top = top + 'px';
+            mobileNav.style.height = remaining + 'px';
+        } else {
+            // restore scrolling
+            document.documentElement.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
+            window.scrollTo(0, savedScrollY || 0);
+
+            mobileNav.style.top = '';
+            mobileNav.style.height = '';
+        }
+    }
+
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setOpen(!mobileNav.classList.contains('is-open'));
+    });
+
+    // close button inside panel
+    const closeBtn = mobileNav.querySelector('.mobile-close');
+    if (closeBtn) closeBtn.addEventListener('click', (e) => { e.stopPropagation(); setOpen(false); });
+
+    // close when clicking a link inside
+    mobileNav.querySelectorAll('a').forEach((a) => {
+        a.addEventListener('click', () => setOpen(false));
+    });
+
+    // close on outside click
+    document.addEventListener('click', (e) => {
+        if (!mobileNav.classList.contains('is-open')) return;
+        const isInside = mobileNav.contains(e.target) || toggle.contains(e.target);
+        if (!isInside) setOpen(false);
+    });
+
+    // close on resize to larger screens
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) setOpen(false);
+        if (mobileNav.classList.contains('is-open')) setOpen(true);
+    });
+})();
