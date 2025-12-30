@@ -671,55 +671,22 @@ p,
   gap: 16px;
 }
 
-/* Máscara */
 .tabs-carousel {
   width: 100%;
   overflow: hidden;
-  display: flex;
+  position: relative;
+  padding: 0.2rem 0;
 }
 
-/* Grupo animado base */
-.tabs-group {
-  display: flex;
-  gap: 12px;
-  padding-right: 12px;
-
-  flex: 0 0 auto;
-  will-change: transform;
+.tabs-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
 }
 
-/* Fila superior */
-.tabs-group--top {
-  animation: scroll-left 40s linear infinite;
-}
-
-/* Fila inferior */
-.tabs-group--bottom {
-  animation: scroll-right 50s linear infinite;
-}
-
-/* ⬅️ CLAVE ABSOLUTA */
-.tabs-group--offset {
-  transform: translateX(-100%);
-}
-
-/* Animación */
-@keyframes scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes scroll-right {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+/* ensure consistent 12px gap between individual tabs, including across clones */
+.tabs-track .tab {
+    margin-right: 12px;
 }
 
 
@@ -728,7 +695,6 @@ p,
    ========================= */
 
 .services {
-    padding: 5rem 0;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -852,7 +818,7 @@ p,
 section.projects {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 0 5rem 0;
+    padding: 5rem 0;
 }
 
 .projects h2 {
@@ -1255,43 +1221,43 @@ section.projects {
    ========================= */
 
 .scroll-top {
-  position: fixed;
-  right: 24px;
-  bottom: 32px;
-  z-index: 100;
+    position: fixed;
+    right: 24px;
+    bottom: 32px;
+    z-index: 100;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  background: rgba(89, 255, 186, 0.15);
-  border: 1px solid var(--accent-green);
-  border-radius: 9999px;
+    background: rgba(89, 255, 186, 0.15);
+    border: 1px solid var(--accent-green);
+    border-radius: 9999px;
 
-  backdrop-filter: blur(8px);
-  cursor: pointer;
+    backdrop-filter: blur(8px);
+    cursor: pointer;
 
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(10px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
 
-  transition:
-    opacity 0.3s ease,
-    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.25s ease;
+    transition:
+        opacity 0.3s ease,
+        transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.25s ease;
 }
 
 /* Visible */
 .scroll-top.is-visible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
 /* Hover */
 .scroll-top:hover {
-  transform: translateY(-4px);
-  background: var(--accent-green);
+    transform: translateY(-4px);
+    background: var(--accent-green);
 }
 
 
