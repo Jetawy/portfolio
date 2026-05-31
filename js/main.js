@@ -374,9 +374,7 @@ document.querySelectorAll('.tabs-carousel').forEach((carousel, idx) => {
         setOpen(!mobileNav.classList.contains('is-open'));
     });
 
-    // close button inside panel
-    const closeBtn = mobileNav.querySelector('.mobile-close');
-    if (closeBtn) closeBtn.addEventListener('click', (e) => { e.stopPropagation(); setOpen(false); });
+    // (mobile-close button removed from HTML — closing handled by nav-toggle only)
 
     // close when clicking a link inside
     mobileNav.querySelectorAll('a').forEach((a) => {
