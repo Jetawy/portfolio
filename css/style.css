@@ -245,24 +245,36 @@ p,
     gap: 0.25rem;
     padding: 0.25rem;
     border-radius: 9999px;
-    border: 1px solid var(--accent-green);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
 }
 
 /* Mobile nav toggle/button */
 .nav-toggle {
-    background: transparent;
-    border: none;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 9999px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px;
-    margin-left: 0.5rem;
+    width: 44px;
+    height: 44px;
+    padding: 0;
     cursor: pointer;
+    flex-shrink: 0;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid var(--accent-green);
+    outline-offset: 2px;
 }
 
 .nav-toggle img {
-    display: block;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
 }
 
 .header-center-mobile {
@@ -272,21 +284,20 @@ p,
     left: 0;
     right: 0;
     top: 0;
-    /* adjusted by JS when opening to sit below header */
     width: 100%;
-    background: rgba(7, 9, 20, 0.99);
+    background: #070914;
     color: var(--text-primary);
     z-index: 120;
-    border-radius: 0 0 0 0;
-    overflow: hidden;
-    transition: top 220ms ease, height 220ms ease, opacity 180ms ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: top 220ms ease, height 220ms ease;
 }
 
 .header-center-mobile .mobile-panel-inner {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    padding: 32px;
+    min-height: 100%;
+    padding: 28px 28px 56px;
     position: relative;
 }
 
@@ -298,7 +309,7 @@ p,
     border-radius: 12px;
 }
 
-.header-center-mobile .nav-item a {
+.header-center-mobile .nav-item a:not(.btn-primary) {
     padding: 0.5rem 0.75rem;
     color: var(--text-muted);
     text-align: left;
@@ -308,34 +319,21 @@ p,
     display: block;
 }
 
-/* Close button in top-right of the overlay */
-.mobile-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: transparent;
-    border: none;
-    width: 44px;
-    height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.mobile-close img {
-    width: 22px;
-    height: auto;
-    display: block;
-}
+/* (mobile-close removed — closing handled by nav-toggle in header) */
 
 /* Position list at top-left of the overlay area */
 .mobile-list {
-    margin-top: 24px;
+    margin-top: 16px;
     margin-left: 0;
     align-self: flex-start;
-    /* align to left inside overlay */
     align-items: flex-start;
+    width: 100%;
+}
+
+/* Separadores entre items */
+.mobile-list .nav-item + .nav-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    width: 100%;
 }
 
 /* Force left alignment for all content inside mobile panel */
@@ -358,7 +356,7 @@ p,
     align-self: flex-start;
 }
 
-.header-center-mobile .nav-item a {
+.header-center-mobile .nav-item a:not(.btn-primary) {
     text-align: left;
 }
 
@@ -381,28 +379,37 @@ p,
 }
 
 /* Mobile-specific styles for utilities inside the list */
-.header-center-mobile .nav-item a {
+.header-center-mobile .nav-item a:not(.btn-primary) {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     color: var(--text-muted);
-    padding: 1rem 0;
+    padding: 0.85rem 0;
+    background: none !important;
+    transform: none !important;
+    border-radius: 0;
+    font-size: 1.1rem;
 }
 
-.header-center-mobile .nav-item a:hover,
-.nav-item.active a {
+.header-center-mobile .nav-item a:not(.btn-primary):hover,
+.header-center-mobile .nav-item.active a:not(.btn-primary) {
     background: none !important;
     color: var(--accent-green) !important;
+    transform: none !important;
 }
 
 .header-center-mobile .btn-primary.btn-mobile {
-    width: 100%;
+    width: auto;
     justify-content: center;
-    padding: 0.6rem 1rem;
+    padding: 0.6rem 1.25rem 0.6rem 1.5rem;
+    margin-top: 0.5rem;
 }
 
 .header-center-mobile .btn-icon {
-    margin-left: 8px;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 /* Ensure mobile "Let's talk" uses the same visual style as desktop .btn-primary */
@@ -410,18 +417,19 @@ p,
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 0.75rem 0.5rem 1.25rem;
+    padding: 0.6rem 1rem 0.6rem 1.5rem;
     font-size: var(--fs-p);
     font-weight: 500;
     font-family: var(--font-sans);
-    color: #090D18;
-    background: var(--accent-green);
+    /* texto oscuro sobre verde */
+    color: #090D18 !important;
+    background: var(--accent-green) !important;
     border-radius: 9999px;
     text-decoration: none;
-    border: 1px solid transparent;
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    width: 100%;
-    justify-content: center;
+    border: 1px solid var(--accent-green);
+    width: auto;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 .header-center-mobile .nav-item .btn-primary .btn-icon {
@@ -429,35 +437,20 @@ p,
 }
 
 .header-center-mobile .nav-item .btn-primary:hover {
-    background: transparent;
-    color: var(--accent-green);
+    background: transparent !important;
+    color: var(--accent-green) !important;
     border-color: var(--accent-green);
-    transform: translateY(-1px);
 }
 
-/* Mobile panel header */
-.mobile-panel-header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 18px;
-}
 
-.mobile-logo {
-    width: 34px;
-    height: auto;
-}
-
-.header-center-mobile .nav-heading .mobile-cta-title {
-    margin-top: auto;
-    text-align: left;
-}
 
 .header-center-mobile .nav-heading .mobile-cta-title {
     font-family: var(--font-serif);
-    font-size: var(--fs-h2);
-    line-height: 1.05;
-    margin: 3rem 0;
+    font-size: clamp(1.4rem, 5vw, 1.9rem);
+    line-height: 1.15;
+    margin: 1.75rem 0 1rem;
+    color: var(--text-primary);
+    text-align: left;
 }
 
 .mobile-list .nav-item.active a {
@@ -487,9 +480,9 @@ p,
         transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Active item */
-.nav-item a:hover,
-.nav-item.active a {
+/* Active item — solo en la nav de escritorio */
+.header-center .nav-item a:hover,
+.header-center .nav-item.active a {
     background: var(--accent-green) !important;
     color: var(--bg-primary) !important;
     transform: translateY(-1px);
@@ -768,8 +761,8 @@ p,
 
 .timeline-card {
     position: relative;
-    max-width: 500px;
-    width: 460px;
+    max-width: 460px;
+    width: 100%;
     padding: 1.5rem 1.75rem;
 
     background: #090d1871;
@@ -926,17 +919,6 @@ p,
     gap: 24px;
 }
 
-@media (min-width: 768px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1024px) {
-    .services-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
 
 .service-card {
     position: relative;
@@ -1056,26 +1038,12 @@ section.projects {
 .projects-track {
     /* mobile-first: stacked cards */
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px; /* match services gap */
     width: auto;
+    grid-auto-flow: column;
 }
 
-@media (min-width: 768px) {
-    .projects-track {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-        width: auto;
-    }
-}
-
-@media (min-width: 1024px) {
-    .projects-track {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 24px;
-        width: auto;
-    }
-}
 
 .project-card {
     width: 100%;
@@ -1453,23 +1421,6 @@ section.projects {
     flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
-    .footer-form {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .footer-form input {
-        flex: none;
-        width: 100%;
-    }
-
-    .site-footer .btn-primary {
-        display: inline-flex;
-        justify-content: center;
-        margin-top: 1rem;
-    }
-}
 
 /* =========================
    SCROLL TO TOP
@@ -1484,6 +1435,9 @@ section.projects {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 34px;
+    height: 34px;
 
     background: rgba(89, 255, 186, 0.15);
     border: 1px solid var(--accent-green);
@@ -1502,6 +1456,13 @@ section.projects {
         background-color 0.25s ease;
 }
 
+.scroll-top img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    display: block;
+}
+
 /* Visible */
 .scroll-top.is-visible {
     opacity: 1;
@@ -1513,87 +1474,119 @@ section.projects {
 .scroll-top:hover {
     transform: translateY(-4px);
     background: var(--accent-green);
+    box-shadow: 0px 0px 10px var(--accent-green);
 }
 
 
-/* =========================
-   RESPONSIVE
-   ========================= */
 
+/* ==========================================================
+   RESPONSIVE — todas las media queries consolidadas aquí
+   Breakpoints:
+     xl   ≤ 1280px
+     lg   ≤ 1024px  (tablet landscape)
+     md   ≤ 900px   (tablet portrait)
+     sm   ≤ 768px   (phablet / mobile large)
+     xs   ≤ 480px   (mobile)
+   ========================================================== */
+
+/* ─── XL: 1280px ─────────────────────────────────────────── */
+@media (max-width: 1280px) {
+    .timeline-card {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+/* ─── LG: 1024px (tablet landscape) ─────────────────────── */
 @media (max-width: 1024px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
+
+    /* Hero */
+    .hero-container {
+        padding-top: 6rem;
     }
 
+    .hero-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    /* Column 1 (tabs) + Column 3 (content) in first row,
+       image spans full width below */
     .hero-tabs {
-        align-items: center;
+        align-items: flex-start;
+        grid-row: 1;
+        grid-column: 1;
     }
 
     .hero-content {
-        margin: 0 auto;
-        max-width: 400px;
+        max-width: 100%;
+        grid-row: 1;
+        grid-column: 2;
     }
-}
 
-@media (max-width: 900px) {
-    .dna-section {
-        padding: 3rem 0;
+    .hero-image {
+        grid-row: 2;
+        grid-column: 1 / -1;
         margin-top: 0;
     }
 
+    .hero-image img {
+        max-height: 480px;
+    }
+
+    /* Services grid: 2 cols */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Projects track: 2 cols */
+    .projects-track {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ─── MD: 900px (tablet portrait) ───────────────────────── */
+@media (max-width: 900px) {
+
+    /* DNA section */
+    .dna-section {
+        padding: 5rem 0;
+        margin-top: -80px;
+    }
+
+    .dna-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    /* Timeline */
     .timeline-section {
         padding: 3rem 0;
     }
 
     .timeline-header {
         margin: 0 auto 3rem;
+        padding: 0 1.5rem;
     }
 
-    .timeline {
-        grid-template-columns: 1fr;
-    }
-
-    /* CREATIVE TIMELINE – mobile adjustments */
-    /* hide the central vertical line on small screens */
     .timeline-line {
         display: none;
     }
 
-    /* make timeline a single column and left-aligned like the right column */
     .timeline {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
     }
 
     .timeline-column {
         align-items: flex-start;
         text-align: left;
-        margin-top: 0;
-    }
-
-    .timeline-bg {
-        background: url(../assets/img/timeline.png) center / cover no-repeat;
-    }
-
-    /* make cards full width and consistent */
-    .timeline-card {
-        width: 100%;
-        max-width: 100%;
-        padding: 1rem 1rem;
-    }
-
-    /* position the icon to the left for all cards (same as right column) */
-    .timeline-card .timeline-icon {
-        left: -39px;
-        right: auto;
-        transform: none;
-        top: 0.75rem;
-    }
-
-    .timeline-line {
-        left: 0;
+        margin-top: 0 !important;
     }
 
     .timeline-column.left,
@@ -1603,46 +1596,42 @@ section.projects {
         margin: 0;
     }
 
-    /* On small screens use a single offset (icons on the left) */
-    .timeline-card .timeline-icon {
-        left: -44px;
-        right: auto;
-    }
-
-    .timeline-column.left .timeline-card,
-    .timeline-column.right .timeline-card {
-        padding-left: 20px;
-        padding-right: 20px;
+    .timeline-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 1.25rem 1.25rem;
     }
 
     .timeline-card .timeline-icon {
         position: static;
         transform: none;
-        margin-bottom: 0.5rem;
-        width: 36px;
-        height: 36px;
+        margin-bottom: 0.75rem;
+        width: 32px;
+        height: 32px;
     }
 
     .timeline-title {
-        display: flex;
+        flex-direction: row;
         align-items: center;
-        justify-content: start;
-        gap: 12px;
-        flex-direction: row-reverse;
+        justify-content: flex-start;
+        gap: 10px;
     }
 
+    /* Contact */
     .contact-wrapper {
         grid-template-columns: 1fr;
-        padding: 40px;
+        padding: 32px;
+        gap: 40px;
     }
 
     .form-row {
         grid-template-columns: 1fr;
     }
 
+    /* Footer */
     .footer-wrapper {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 40px;
     }
 
     .footer-form {
@@ -1650,79 +1639,329 @@ section.projects {
         align-items: stretch;
     }
 
+    .footer-form input {
+        flex: none;
+        width: 100%;
+    }
+
     .site-footer .btn-primary {
         justify-content: center;
+        width: 100%;
     }
 }
 
-
+/* ─── SM: 768px (phablet / mobile large) ─────────────────── */
 @media (max-width: 768px) {
-    .dna-cards {
-        grid-template-columns: 1fr;
+
+    /* Hero — 1 columna, orden: título → imagen → tabs → texto → botón */
+    .hero-container {
+        padding-top: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
-    .dna-bg img {
-        max-width: 140%;
+    .hero-title {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+        text-align: center;
+        z-index: 4;
+        top: 256px;
     }
 
-    .tabs-track {
-        animation-duration: 60s;
+    .hero-br {
+        display: none;
     }
 
-    .cta-final {
-        
+    .hero-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        text-align: center;
     }
 
-    .cta-content h2 {
-        font-size: 40px;
-    }
-
-    .services-projects-bg {
-        width: 220%;
-        height: 500px;
-        top: 50%;
-    }
-}
-
-
-@media (max-width: 600px) {
-
+    /* Orden visual correcto: imagen → tabs → texto */
     .hero-image {
-        margin-top: -3rem;
+        order: 1;
+        margin-top: 0;
+        width: 100%;
     }
 
     .hero-image img {
-        max-height: 320px;
+        max-height: 380px;
         width: auto;
         object-fit: contain;
+        margin: 0 auto;
+        display: block;
     }
 
     .hero-tabs {
+        order: 2;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        gap: 0.25rem;
-        margin: 2rem 0 0 0;
+        gap: 0.35rem;
+        margin: 0;
+        align-self: center;
     }
 
-    .hero-tabs .tab {
-        margin: 0.25rem;
+    .hero-content {
+        order: 3;
+        max-width: 480px;
+        margin: 0 auto;
+        width: 100%;
     }
 
-    /* Ensure the hero grid stacks and centers content on mobile */
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-    }
-
-    /* Add 5rem margin below the View projects button */
     .hero-content .btn-secondary {
-        margin-bottom: 3rem;
+        margin: 1rem auto 2rem;
+        display: inline-flex;
+        justify-content: center;
+    }
+
+    /* DNA */
+    .dna-section {
+        margin-top: 0;
+        padding: 4rem 0;
+    }
+
+    .dna-bg img {
+        max-width: 160%;
+        left: -30%;
+        position: relative;
+    }
+
+    .dna-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 420px;
+        margin: 0 auto;
     }
 
     .dna-title {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
+
+    /* Services */
+    .services-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 40px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Projects */
+    .projects-track {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        grid-auto-flow: row;
+    }
+
+    /* Contact wrapper */
+    .contact-wrapper {
+        padding: 24px;
+    }
+
+    /* CTA */
+    .cta-final {
+        min-height: unset;
+        padding: 4rem 1.5rem;
+        align-items: center;
+    }
+
+    .cta-content {
+        gap: 20px;
+        align-items: center;
+    }
+
+    .cta-content h2 {
+        font-size: clamp(1.75rem, 7vw, 2.25rem);
+        line-height: 1.15;
+    }
+
+    .cta-final .btn-secondary {
+        height: auto;
+        padding: 0.6rem 1rem 0.6rem 1.5rem;
+        width: auto;
+        justify-content: center;
+    }
+
+    /* Background blob */
+    .services-projects-bg {
+        width: 240%;
+        height: 500px;
+        top: 50%;
+    }
+
+    /* Scroll-top btn */
+    .scroll-top {
+        right: 16px;
+        bottom: 20px;
+    }
+}
+
+/* ─── XS: 480px (mobile) ─────────────────────────────────── */
+@media (max-width: 480px) {
+
+    /* Nav */
+    .header-nav {
+        padding: 0 1rem;
+    }
+
+    /* Hero */
+    .hero-container {
+        padding: 4.5rem 1rem 0;
+    }
+
+    .hero-title {
+        font-size: clamp(1.5rem, 8vw, 2rem);
+    }
+
+    .hero-image img {
+        max-height: 280px;
+    }
+
+    /* DNA cards full width */
+    .dna-cards {
+        max-width: 100%;
+    }
+
+    .dna-card {
+        min-height: 120px;
+    }
+
+    /* Services — reduce padding on cards */
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .service-card h3 {
+        margin: 90px 0 12px;
+    }
+
+    /* Contact */
+    .contact-wrapper {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .contact-content h2 {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+    }
+
+    /* Footer */
+    .site-footer {
+        padding: 3rem 1rem;
+    }
+
+    .footer-name,
+    .footer-title {
+        font-size: 24px;
+    }
+
+    /* Buttons full-width on tiny screens */
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* CTA */
+    .cta-content {
+        padding: 0 0.5rem;
+    }
+}
+
+/* ─── Fixes extra: asegura que btn-icon-only se muestre bien ─── */
+.btn-icon-only {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    flex-shrink: 0;
+}
+
+.btn-icon-only:hover {
+    border-color: var(--accent-green);
+    background: rgba(102, 255, 191, 0.08);
+}
+
+.btn-icon-only img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* =========================
+   ICON SIZES — control global de todos los iconos
+   ========================= */
+
+/* LinkedIn icon en menú móvil */
+.linkedin-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+}
+
+/* Icono en el botón de menú / hamburger */
+.nav-toggle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* Icono de scroll-to-top */
+.scroll-top-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Icono SVG genérico (linkedin en header desktop) */
+.icon-svg {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* Iconos work/study dentro de .timeline-icon */
+.timeline-icon-img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Linkedin inline en menú móvil */
+.header-center-mobile .nav-item a:not(.btn-primary) img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Las flechas de botón llenan el contenedor .btn-icon de 28×28px */
+.btn-icon img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
