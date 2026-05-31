@@ -61,7 +61,7 @@
             <div class="header-right hidden md:flex">
                 <a href="https://www.linkedin.com/in/yaiza-coz" target="_blank" rel="noopener" class="btn-icon-only"
                     aria-label="LinkedIn profile">
-                    <img src="assets/icons/linkedin.svg" alt="" />
+                    <img src="assets/icons/linkedin.svg" alt="" class="icon-svg" />
                 </a>
 
                 <a href="#contact" class="btn-primary">
@@ -73,45 +73,9 @@
                 </a>
             </div>
 
-            <!-- MOBILE NAV (duplicated for mobile, hidden on md+ using Tailwind utility) -->
-            <div class="header-center-mobile md:hidden">
-                <ul class="nav-pill">
-                    <li class="nav-item active"><a href="#hero">Home</a></li>
-                    <li class="nav-item"><a href="#design-path">About me</a></li>
-                    <li class="nav-item"><a href="#services">Services</a></li>
-                    <li class="nav-item"><a href="#projects">Projects</a></li>
-
-                    <!-- Utilities as list items to preserve menu style -->
-                    <li class="nav-item">
-                        <a href="https://www.linkedin.com/in/yaiza-coz" target="_blank" rel="noopener">
-                            LinkedIn
-                        </a>
-                    </li>
-
-                    <li class="nav-heading">
-                        <h2 class="mobile-cta-title">Have a project in mind?</h2>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#contact" class="btn-primary btn-mobile">
-                            Let’s talk
-                            <span class="btn-icon">
-                                <img src="assets/icons/arrow-right.svg" class="icon-default" alt="" />
-                                <img src="assets/icons/arrow-right-secondary.svg" class="icon-hover" alt="" />
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="header-center-mobile md:hidden" aria-hidden="true">
+            <!-- MOBILE NAV PANEL -->
+            <div class="header-center-mobile" aria-hidden="true">
                 <div class="mobile-panel-inner">
-                    <button class="mobile-close" aria-label="Close menu">
-                        <img src="assets/icons/close.svg" alt="close" />
-                    </button>
-
-                    <div class="mobile-panel-header">
-                        <img src="assets/icons/yiz-logo.svg" alt="logo" class="mobile-logo" />
-                    </div>
 
                     <ul class="nav-pill mobile-list">
                         <li class="nav-item active"><a href="#hero">Home</a></li>
@@ -122,8 +86,7 @@
                         <!-- Utilities as list items to preserve menu style -->
                         <li class="nav-item">
                             <a href="https://www.linkedin.com/in/yaiza-coz" target="_blank" rel="noopener">
-                                <img src="assets/icons/linkedin.svg" alt="LinkedIn"
-                                    style="width:18px; height:auto; margin-right:8px; vertical-align:middle;" />
+                                <img src="assets/icons/linkedin.svg" alt="LinkedIn" class="linkedin-icon" />
                                 Linkedin
                             </a>
                         </li>
@@ -154,7 +117,7 @@
 
             <!-- TITLE -->
             <h1 class="hero-title">
-                Designing digital products<br />
+                Designing digital products<span class="hero-br"><br /></span>
                 for complex systems
             </h1>
 
@@ -260,7 +223,7 @@
                 <div class="timeline-column left">
                     <div class="timeline-card">
                         <span class="timeline-icon">
-                            <img src="assets/icons/work.png" alt="" />
+                            <img src="assets/icons/work.png" alt="" class="timeline-icon-img" />
                         </span>
                         <span class="timeline-date">MAR 2020 – DEC 2020</span>
                         <div class="timeline-title">
@@ -272,7 +235,7 @@
 
                     <div class="timeline-card">
                         <span class="timeline-icon">
-                            <img src="assets/icons/work.png" alt="" />
+                            <img src="assets/icons/work.png" alt="" class="timeline-icon-img" />
                         </span>
                         <span class="timeline-date">2021 – 2022</span>
                         <h3>Graphic Designer</h3>
@@ -281,7 +244,7 @@
 
                     <div class="timeline-card">
                         <span class="timeline-icon">
-                            <img src="assets/icons/work.png" alt="" />
+                            <img src="assets/icons/work.png" alt="" class="timeline-icon-img" />
                         </span>
                         <span class="timeline-date">APR 2022 – JUN 2022</span>
                         <div class="timeline-title">
@@ -293,7 +256,7 @@
 
                     <div class="timeline-card">
                         <span class="timeline-icon">
-                            <img src="assets/icons/work.png" alt="" />
+                            <img src="assets/icons/work.png" alt="" class="timeline-icon-img" />
                         </span>
                         <span class="timeline-date">2022 – Present</span>
                         <h3>UX/UI & Product Designer</h3>
@@ -306,7 +269,7 @@
                 <div class="timeline-column right">
                     <div class="timeline-card">
                         <span class="timeline-icon">
-                            <img src="assets/icons/study.png" alt="" />
+                            <img src="assets/icons/study.png" alt="" class="timeline-icon-img" />
                         </span>
                         <span class="timeline-date">2016 – 2020</span>
                         <h3>Bachelor’s Degree in Graphic Design</h3>
@@ -315,7 +278,7 @@
 
                     <div class="timeline-card">
                         <span class="timeline-icon">
-                            <img src="assets/icons/study.png" alt="" />
+                            <img src="assets/icons/study.png" alt="" class="timeline-icon-img" />
                         </span>
                         <span class="timeline-date">2020 – 2022</span>
                         <h3>Higher Degree in Web Application Development</h3>
@@ -324,7 +287,7 @@
 
                     <div class="timeline-card">
                         <span class="timeline-icon">
-                            <img src="assets/icons/study.png" alt="" />
+                            <img src="assets/icons/study.png" alt="" class="timeline-icon-img" />
                         </span>
                         <span class="timeline-date">2022 – 2023</span>
                         <h3>Master’s Degree in Web & Application Development</h3>
@@ -333,7 +296,7 @@
 
                     <div class="timeline-card">
                         <span class="timeline-icon">
-                            <img src="assets/icons/study.png" alt="" />
+                            <img src="assets/icons/study.png" alt="" class="timeline-icon-img" />
                         </span>
                         <span class="timeline-date">2023 – 2024</span>
                         <h3>Master’s Degree in UX/UI Design</h3>
@@ -537,7 +500,7 @@
                         Let’s talk about<br />
                         <span class="highlight">your project</span>
                     </h2>
-                    <a href="mailto:hello@email.com" class="btn-secondary">
+                    <a href="mailto:yaiza-encarnacion-coz@hotmail.com" class="btn-secondary">
                         Write me
                         <span class="btn-icon">
                             <img src="assets/icons/arrow-right-secondary.svg" class="icon-default" alt="" />
@@ -591,7 +554,7 @@
             <div class="cta-content">
                 <h2>Do you have a <strong>project</strong> in mind?</h2>
 
-                <a href="#contact" class="btn-secondary">
+                <a href="mailto:yaiza-encarnacion-coz@hotmail.com" class="btn-secondary">
                     Let’s make it happen
                     <span class="btn-icon">
                         <img src="assets/icons/arrow-right-secondary.svg" class="icon-default" alt="" />
@@ -647,7 +610,7 @@
     </footer>
 
     <button class="scroll-top" aria-label="Scroll to top">
-        <img src="./assets/icons/top-arrow.svg" alt="" />
+        <img src="./assets/icons/top-arrow.svg" alt="" class="scroll-top-icon" />
     </button>
 
 
